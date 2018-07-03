@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_03_154954) do
+ActiveRecord::Schema.define(version: 2018_07_03_162456) do
+
+  create_table "dogs", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "name"
+    t.integer "weight"
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "login"
