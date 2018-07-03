@@ -1,6 +1,10 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :update, :destroy]
 
+  def dog_foods
+    @dog_foods.dogs
+  end
+
   # GET /dogs
   def index
     @dogs = Dog.all
@@ -10,6 +14,7 @@ class DogsController < ApplicationController
 
   # GET /dogs/1
   def show
+    @dog_food = @dog.dog_foods.build
     render json: @dog
   end
 

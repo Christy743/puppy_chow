@@ -24,6 +24,10 @@ class DogFoodsController < ApplicationController
     end
   end
 
+  def dog
+    @dog.dog_foods
+  end
+
   # PATCH/PUT /dog_foods/1
   def update
     if @dog_food.update(dog_food_params)
