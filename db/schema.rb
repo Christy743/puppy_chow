@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_03_162456) do
+ActiveRecord::Schema.define(version: 2018_07_03_165848) do
+
+  create_table "dog_foods", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "dog_id"
+    t.string "food_type"
+    t.integer "cups"
+    t.integer "can"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_dog_foods_on_dog_id"
+    t.index ["user_id"], name: "index_dog_foods_on_user_id"
+  end
 
   create_table "dogs", force: :cascade do |t|
     t.integer "user_id"
