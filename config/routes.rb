@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/auth/github', to: 'authentication#github', format: false
+
   resources :dog_foods do
     get :dogs, on: :member
   end
