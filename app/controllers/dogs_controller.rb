@@ -1,8 +1,8 @@
 class DogsController < ApplicationController
-  before_action :set_dog, only: [:show, :update, :destroy]
+  before_action :set_dog, only: [:show, :dog_foods, :update, :destroy]
 
   def dog_foods
-    @dog_foods.dogs
+    @dog.dog_foods
   end
 
   # GET /dogs
