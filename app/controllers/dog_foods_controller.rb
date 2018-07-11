@@ -1,5 +1,6 @@
 class DogFoodsController < ApplicationController
   before_action :set_dog_food, only: [:show, :dogs, :update, :destroy]
+  before_action :authenticate_user!
 
   def dogs
     @dog_food.dogs
@@ -7,7 +8,8 @@ class DogFoodsController < ApplicationController
 
   # GET /dog_foods
   def index
-    @dog_foods = DogFood.all
+    @dog_foods = @current_user.dog_foods
+    #@dog_foods = DogFood.all
 
     render json: @dog_foods
   end
@@ -49,7 +51,8 @@ class DogFoodsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dog_food
-      @dog_food = DogFood.find(params[:id])
+      @dog_food = @current_user.dog_foods.find(params[:id])
+      #@dog_food = DogFood.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
