@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :dog_foods #do
-    #get :dogs, on: :member
-  #end
+  resources :dog_foods do
+    get :dogs, on: :member
+  end
 
   resources :dogs do
     get :dog_foods, on: :member
